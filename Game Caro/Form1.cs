@@ -29,7 +29,8 @@ namespace Game_Caro
 
             tmCoolDown.Interval = Constant.COOL_DOWN_INTERVAL;
 
-            ChessBoard.DrawChessBar();
+            NewGame();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,6 +43,20 @@ namespace Game_Caro
             tmCoolDown.Stop();
             pnlChessBoard.Enabled = false;
             MessageBox.Show("Kết thúc");
+        }
+        
+        void NewGame()
+        {
+            prcbCoolDown.Value = 0;
+            tmCoolDown.Stop();
+
+            ChessBoard.DrawChessBar();
+        }
+
+        void Exit()
+        {
+            Application.Exit();
+
         }
 
         void ChessBoard_PlayerMarked(object sender, EventArgs e)
@@ -65,5 +80,35 @@ namespace Game_Caro
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Exit();
+        }
+
+        private void btnPvsC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewGame();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Exit();
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            NewGame();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+                e.Cancel = true;
+        }
     }
 }

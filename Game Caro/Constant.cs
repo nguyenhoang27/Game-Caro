@@ -12,7 +12,7 @@ namespace Game_Caro
         public static int Chess_Square_Width = 35;
         public static int Chess_Square_Height = 35;
         //Kích thước bàn cờ
-        public static int Chess_Board_Width = 20;
+        public static int Chess_Board_Width = 21;
         public static int Chess_Board_Height = 20;
         //Thời gian cooldown
         public static int COOL_DOWN_STEP = 100;

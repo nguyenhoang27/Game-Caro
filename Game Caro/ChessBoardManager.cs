@@ -61,15 +61,19 @@ namespace Game_Caro
             };
             this.PlayerName = playerName;
             this.PlayerMark = mark;
-            CurrentPlayer = 0;
-
-            ChangePlayer();
+            
         }
         #endregion
         #region Methods
         public void DrawChessBar()
         {
             ChessBoard.Enabled = true;
+            ChessBoard.Controls.Clear();
+
+            CurrentPlayer = 0;
+
+            ChangePlayer();
+
             Matrix = new List<List<Button>>();
             Button oldButton = new Button() { Width = 0, Location = new Point(0, 0) };
             for (int i = 0; i < Constant.Chess_Board_Height; i++)
