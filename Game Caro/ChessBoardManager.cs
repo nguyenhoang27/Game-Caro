@@ -133,7 +133,7 @@ namespace Game_Caro
         {
             return isEndHorizontal(btn) || isEndVertical(btn) || isEndPrimary(btn) || isEndSub(btn);
         }
-
+        //Lấy tọa độ
         private Point GetChessPoint(Button btn)
         {
             int vertical = Convert.ToInt32(btn.Tag);
@@ -143,7 +143,7 @@ namespace Game_Caro
 
             return point;
         }
-
+        //Điều kiện thắng
         private bool isEndHorizontal(Button btn)
         {
             Point point = GetChessPoint(btn);
@@ -275,6 +275,7 @@ namespace Game_Caro
 
             CurrentPlayer = CurrentPlayer == 1 ? 0 : 1;
         }
+        //Đổi player tên + hình
         private void ChangePlayer()
         {
             PlayerName.Text = Player[CurrentPlayer].Name;
