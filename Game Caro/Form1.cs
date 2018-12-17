@@ -42,6 +42,7 @@ namespace Game_Caro
         {
             tmCoolDown.Stop();
             pnlChessBoard.Enabled = false;
+            undoToolStripMenuItem.Enabled = false;
             MessageBox.Show("Kết thúc");
         }
         
@@ -49,7 +50,7 @@ namespace Game_Caro
         {
             prcbCoolDown.Value = 0;
             tmCoolDown.Stop();
-
+            undoToolStripMenuItem.Enabled = true;
             ChessBoard.DrawChessBar();
         }
 
@@ -70,6 +71,13 @@ namespace Game_Caro
             EndGame();
         }
 
+        void Undo()
+        {
+            ChessBoard.Undo();
+            tmCoolDown.Start();
+            prcbCoolDown.Value = 0;
+        }
+
         private void tmCoolDown_Tick(object sender, EventArgs e)
         {
             prcbCoolDown.PerformStep();
@@ -80,7 +88,7 @@ namespace Game_Caro
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //Exit
         {
             Exit();
         }
@@ -110,5 +118,10 @@ namespace Game_Caro
             if (MessageBox.Show("Bạn có chắc muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
                 e.Cancel = true;
         }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Undo();
+        } //Menu Undo
     }
 }

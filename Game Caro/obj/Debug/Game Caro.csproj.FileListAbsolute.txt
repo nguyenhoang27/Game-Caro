@@ -8,3 +8,8 @@ E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game Caro.csproj.Genera
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game Caro.csproj.CoreCompileInputs.cache
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game Caro.exe
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game Caro.pdb
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\MaterialDesignColors.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\MaterialDesignThemes.Wpf.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\MaterialDesignThemes.Wpf.pdb
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\MaterialDesignThemes.Wpf.xml
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game Caro.csproj.CopyComplete

@@ -48,6 +48,14 @@ namespace Game_Caro
             }
         }
 
+        private Stack<PlayInfo> playTimeLine; //Lưu tọa độ
+
+        public Stack<PlayInfo> PlayTimeLine
+        {
+            get { return playTimeLine; }
+            set { playTimeLine = value; }
+        }
+
         #endregion
 
         #region Initialize
@@ -69,6 +77,8 @@ namespace Game_Caro
         {
             ChessBoard.Enabled = true;
             ChessBoard.Controls.Clear();
+
+            PlayTimeLine = new Stack<PlayInfo>();
 
             CurrentPlayer = 0;
 
@@ -110,6 +120,10 @@ namespace Game_Caro
                 return;
 
             Mark(btn);
+
+            PlayTimeLine.Push(new    PlayInfo(GetChessPoint(btn), CurrentPlayer));
+
+            CurrentPlayer = CurrentPlayer == 1 ? 0 : 1;
 
             ChangePlayer();
 
@@ -268,12 +282,37 @@ namespace Game_Caro
 
             return countTop + countBottom == 5;
         }
+        //Undo
+        public bool Undo()
+        {
+
+            if (PlayTimeLine.Count <= 0)
+                return false;
+
+            PlayInfo oldPoint = PlayTimeLine.Pop();
+            Button btn = Matrix[oldPoint.Point.Y][oldPoint.Point.X];
+
+            btn.BackgroundImage = null;
+
+            if (PlayTimeLine.Count <= 0)
+            {
+                CurrentPlayer = 0;
+            }
+            else
+            {
+                oldPoint = PlayTimeLine.Peek();
+                CurrentPlayer = oldPoint.CurrentPlayer == 1 ? 0 : 1;
+            }
+
+            ChangePlayer();
+
+            return true;
+        }
+
 
         private void Mark(Button btn)
         {
             btn.BackgroundImage = Player[CurrentPlayer].Mark;
-
-            CurrentPlayer = CurrentPlayer == 1 ? 0 : 1;
         }
         //Đổi player tên + hình
         private void ChangePlayer()
