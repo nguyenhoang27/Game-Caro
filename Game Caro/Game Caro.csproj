@@ -60,6 +60,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="KetNoiMang.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayInfo.cs" />
     <Compile Include="Program.cs" />
