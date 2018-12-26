@@ -21,6 +21,9 @@ namespace Game_Caro
         public Form1()
         {
             InitializeComponent();
+
+            Control.CheckForIllegalCrossThreadCalls = false;
+
             ChessBoard = new ChessBoardManager(pnlChessBoard, txbPlayerName, pctbMark);
             ChessBoard.EndedGame += ChessBoard_EndedGame;
             ChessBoard.PlayerMarked += ChessBoard_PlayerMarked;
@@ -48,7 +51,7 @@ namespace Game_Caro
             tmCoolDown.Stop();
             pnlChessBoard.Enabled = false;
             undoToolStripMenuItem.Enabled = false;
-            MessageBox.Show("Kết thúc");
+            //MessageBox.Show("Kết thúc");
         }
         
         void NewGame()
@@ -65,15 +68,21 @@ namespace Game_Caro
 
         }
 
-        void ChessBoard_PlayerMarked(object sender, EventArgs e)
+        void ChessBoard_PlayerMarked(object sender, ButtonClickEvent e)
         {
             tmCoolDown.Start();
+            pnlChessBoard.Enabled = false;
             prcbCoolDown.Value = 0;
+
+            socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.ClickedPoint));
+            undoToolStripMenuItem.Enabled = false;
+            Listen();
         }
 
         void ChessBoard_EndedGame(object sender, EventArgs e)
         {
             EndGame();
+            socket.Send(new SocketData((int)SocketCommand.END_GAME, "", new Point()));
         }
 
         void Undo()
@@ -90,6 +99,7 @@ namespace Game_Caro
             if (prcbCoolDown.Value >= prcbCoolDown.Maximum)
             {
                 EndGame();
+                socket.Send(new SocketData((int)SocketCommand.TIME_OUT, "", new Point()));
             }
         }
 
@@ -106,6 +116,8 @@ namespace Game_Caro
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewGame();
+            socket.Send(new SocketData((int)SocketCommand.NEW_GAME, "", new Point()));
+            pnlChessBoard.Enabled = true;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,17 +128,28 @@ namespace Game_Caro
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             NewGame();
+            socket.Send(new SocketData((int)SocketCommand.NEW_GAME, "", new Point()));
+            pnlChessBoard.Enabled = true;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
                 e.Cancel = true;
+            else
+            {
+                try
+                {
+                    socket.Send(new SocketData((int)SocketCommand.QUIT, "", new Point()));
+                }
+                catch { }
+            }
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Undo();
+            socket.Send(new SocketData((int)SocketCommand.UNDO, "", new Point()));
         } //Menu Undo
 
         private void btnPvsP_Click(object sender, EventArgs e)
@@ -135,47 +158,88 @@ namespace Game_Caro
 
             if (!socket.ConnectServer()) //Kết nối với server không được thì tự tạo server.
             {
+                socket.isServer = true;
+                pnlChessBoard.Enabled = true;
                 socket.CreateServer();
 
-                Thread listenThread = new Thread(() =>
-                {
-                    while (true)
-                    {
-                        Thread.Sleep(500);
-                        try
-                        {
-                            Listen();
-                            break;
-                        }
-                        catch
-                        {
-
-                        }
-                    }
-                });
-                listenThread.IsBackground = true;
-                listenThread.Start();
             }
             else
             {
-                Thread listenThread = new Thread(() =>
-                {
-                    Listen();
-                });
-                listenThread.IsBackground = true;
-                listenThread.Start();
-
-                socket.Send("Thông tin từ Client");
+                socket.isServer = false;
+                pnlChessBoard.Enabled = false;
+                Listen();
             }
 
         }
 
         void Listen() //Thực hiện Receive
         {
-            string data = (string)socket.Receive();
+           
+            
+                Thread listenThread = new Thread(() =>
+                {
+                    try
+                    {
+                        SocketData data = (SocketData)socket.Receive();
 
-            MessageBox.Show(data);
+                        ProcessData(data);
+                    }
+                    catch (Exception e)
+                    {
+                    }
+
+                });
+                listenThread.IsBackground = true;
+                listenThread.Start();
+      
+
         }
+
+        private void ProcessData(SocketData data)
+        {
+            switch (data.Command)
+            {
+                case (int)SocketCommand.NOTIFY:
+                    MessageBox.Show(data.Message);
+                    break;
+                case (int)SocketCommand.NEW_GAME:
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        NewGame();
+                        pnlChessBoard.Enabled = false;
+                    }));
+                    break;
+                case (int)SocketCommand.SEND_POINT:
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        prcbCoolDown.Value = 0;
+                        pnlChessBoard.Enabled = true;
+                        tmCoolDown.Start();
+                        ChessBoard.OtherPlayerMark(data.Point);
+                        undoToolStripMenuItem.Enabled = true;
+                    }));
+                    break;
+                case (int)SocketCommand.UNDO:
+                    Undo();
+                    prcbCoolDown.Value = 0;
+                    break;
+                case (int)SocketCommand.END_GAME:
+                    MessageBox.Show("Đã 5 con trên 1 hàng");
+                    break;
+                case (int)SocketCommand.TIME_OUT:
+                    MessageBox.Show("Hết giờ");
+                    break;
+                case (int)SocketCommand.QUIT:
+                    tmCoolDown.Stop();
+                    MessageBox.Show("Người chơi đã thoát");
+                    break;
+                default:
+                    break;
+            }
+
+            Listen();
+        }
+
 
         private void Form1_Shown(object sender, EventArgs e)
         {

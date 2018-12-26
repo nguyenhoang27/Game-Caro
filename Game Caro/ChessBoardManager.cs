@@ -17,7 +17,7 @@ namespace Game_Caro
         private TextBox playerName;
         private PictureBox playerMark;
         private List<List<Button>> matrix;
-        private event EventHandler playerMarked;
+        private event EventHandler<ButtonClickEvent> playerMarked;
         private event EventHandler endedGame;
         public Panel ChessBoard { get => chessBoard; set => chessBoard = value; }
         public List<Player> Player { get => player; set => player = value; }
@@ -25,7 +25,7 @@ namespace Game_Caro
         public TextBox PlayerName { get => playerName; set => playerName = value; }
         public PictureBox PlayerMark { get => playerMark; set => playerMark = value; }
         public List<List<Button>> Matrix { get => matrix; set => matrix = value; }
-        public event EventHandler PlayerMarked
+        public event EventHandler<ButtonClickEvent> PlayerMarked
         {
             add
             {
@@ -128,8 +128,29 @@ namespace Game_Caro
             ChangePlayer();
 
             if (playerMarked != null)
-                playerMarked(this, new EventArgs());
+                playerMarked(this, new ButtonClickEvent(GetChessPoint(btn)));
 
+
+            if (isEndGame(btn))
+            {
+                EndGame();
+            }
+        }
+
+        public void OtherPlayerMark(Point point)
+        {
+            Button btn = Matrix[point.Y][point.X];
+
+            if (btn.BackgroundImage != null)
+                return;
+
+            Mark(btn);
+
+            PlayTimeLine.Push(new PlayInfo(GetChessPoint(btn), CurrentPlayer));
+
+            CurrentPlayer = CurrentPlayer == 1 ? 0 : 1;
+
+            ChangePlayer();
 
             if (isEndGame(btn))
             {
@@ -289,6 +310,20 @@ namespace Game_Caro
             if (PlayTimeLine.Count <= 0)
                 return false;
 
+            bool isUndo1 = UndoAStep();
+            bool isUndo2 = UndoAStep();
+
+            PlayInfo oldPoint = PlayTimeLine.Peek();
+            CurrentPlayer = oldPoint.CurrentPlayer == 1 ? 0 : 1;
+
+            return isUndo1 && isUndo2;
+
+        }
+        private bool UndoAStep()
+        {
+            if (PlayTimeLine.Count <= 0)
+                return false;
+
             PlayInfo oldPoint = PlayTimeLine.Pop();
             Button btn = Matrix[oldPoint.Point.Y][oldPoint.Point.X];
 
@@ -301,14 +336,12 @@ namespace Game_Caro
             else
             {
                 oldPoint = PlayTimeLine.Peek();
-                CurrentPlayer = oldPoint.CurrentPlayer == 1 ? 0 : 1;
             }
 
             ChangePlayer();
 
             return true;
         }
-
 
         private void Mark(Button btn)
         {
@@ -323,4 +356,21 @@ namespace Game_Caro
         }
         #endregion
     }
+
+    public class ButtonClickEvent : EventArgs
+    {
+        private Point clickedPoint;
+
+        public Point ClickedPoint
+        {
+            get { return clickedPoint; }
+            set { clickedPoint = value; }
+        }
+
+        public ButtonClickEvent(Point point)
+        {
+            this.ClickedPoint = point;
+        }
+    }
+
 }
