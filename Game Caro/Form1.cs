@@ -29,9 +29,9 @@ namespace Game_Caro
             ChessBoard.PlayerMarked += ChessBoard_PlayerMarked;
             
 
-            prcbCoolDown.Step = Constant.COOL_DOWN_STEP;
-            prcbCoolDown.Maximum = Constant.COOL_DOWN_TIME;
-            prcbCoolDown.Value = 0;
+            pcbCircular.Step = Constant.COOL_DOWN_STEP;
+            pcbCircular.Maximum = Constant.COOL_DOWN_TIME;
+            pcbCircular.Value = 0;
 
             tmCoolDown.Interval = Constant.COOL_DOWN_INTERVAL;
 
@@ -56,7 +56,7 @@ namespace Game_Caro
         
         void NewGame()
         {
-            prcbCoolDown.Value = 0;
+            pcbCircular.Value = 0;
             tmCoolDown.Stop();
             undoToolStripMenuItem.Enabled = true;
             ChessBoard.DrawChessBar();
@@ -72,7 +72,7 @@ namespace Game_Caro
         {
             tmCoolDown.Start();
             pnlChessBoard.Enabled = false;
-            prcbCoolDown.Value = 0;
+            pcbCircular.Value = 0;
 
             socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.ClickedPoint));
             undoToolStripMenuItem.Enabled = false;
@@ -89,14 +89,14 @@ namespace Game_Caro
         {
             ChessBoard.Undo();
             tmCoolDown.Start();
-            prcbCoolDown.Value = 0;
+            pcbCircular.Value = 0;
         }
 
         private void tmCoolDown_Tick(object sender, EventArgs e)
         {
-            prcbCoolDown.PerformStep();
+            pcbCircular.PerformStep();
 
-            if (prcbCoolDown.Value >= prcbCoolDown.Maximum)
+            if (pcbCircular.Value >= pcbCircular.Maximum)
             {
                 EndGame();
                 socket.Send(new SocketData((int)SocketCommand.TIME_OUT, "", new Point()));
@@ -212,7 +212,7 @@ namespace Game_Caro
                 case (int)SocketCommand.SEND_POINT:
                     this.Invoke((MethodInvoker)(() =>
                     {
-                        prcbCoolDown.Value = 0;
+                        pcbCircular.Value = 0;
                         pnlChessBoard.Enabled = true;
                         tmCoolDown.Start();
                         ChessBoard.OtherPlayerMark(data.Point);
@@ -221,7 +221,7 @@ namespace Game_Caro
                     break;
                 case (int)SocketCommand.UNDO:
                     Undo();
-                    prcbCoolDown.Value = 0;
+                    pcbCircular.Value = 0;
                     break;
                 case (int)SocketCommand.END_GAME:
                     MessageBox.Show("Đã 5 con trên 1 hàng");
@@ -248,6 +248,11 @@ namespace Game_Caro
             {
                 txbIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Ethernet);
             }
+        }
+
+        private void pcbCircular_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

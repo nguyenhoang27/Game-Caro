@@ -13,3 +13,7 @@ E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\MaterialDesignThemes.Wp
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\MaterialDesignThemes.Wpf.pdb
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\MaterialDesignThemes.Wpf.xml
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game Caro.csproj.CopyComplete
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\CircularProgressBar.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\WinFormAnimation.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\CircularProgressBar.xml
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\WinFormAnimation.xml

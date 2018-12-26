@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pctbAvatar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grbRuleGame = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
@@ -40,7 +39,6 @@
             this.pctbMark = new System.Windows.Forms.PictureBox();
             this.btnPvsP = new System.Windows.Forms.Button();
             this.txbIP = new System.Windows.Forms.TextBox();
-            this.prcbCoolDown = new System.Windows.Forms.ProgressBar();
             this.txbPlayerName = new System.Windows.Forms.TextBox();
             this.pnlChessBoard = new System.Windows.Forms.Panel();
             this.tmCoolDown = new System.Windows.Forms.Timer(this.components);
@@ -51,34 +49,24 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pcbCircular = new CircularProgressBar.CircularProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctbAvatar)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctbMark)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.pctbAvatar);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pcbCircular);
             this.panel1.Location = new System.Drawing.Point(732, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 219);
+            this.panel1.Size = new System.Drawing.Size(260, 260);
             this.panel1.TabIndex = 0;
-            // 
-            // pctbAvatar
-            // 
-            this.pctbAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctbAvatar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pctbAvatar.BackgroundImage = global::Game_Caro.Properties.Resources.logo_uit;
-            this.pctbAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pctbAvatar.Location = new System.Drawing.Point(0, 0);
-            this.pctbAvatar.Name = "pctbAvatar";
-            this.pctbAvatar.Size = new System.Drawing.Size(260, 216);
-            this.pctbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctbAvatar.TabIndex = 0;
-            this.pctbAvatar.TabStop = false;
             // 
             // panel2
             // 
@@ -91,19 +79,18 @@
             this.panel2.Controls.Add(this.pctbMark);
             this.panel2.Controls.Add(this.btnPvsP);
             this.panel2.Controls.Add(this.txbIP);
-            this.panel2.Controls.Add(this.prcbCoolDown);
             this.panel2.Controls.Add(this.txbPlayerName);
-            this.panel2.Location = new System.Drawing.Point(732, 259);
+            this.panel2.Location = new System.Drawing.Point(732, 308);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 476);
+            this.panel2.Size = new System.Drawing.Size(260, 427);
             this.panel2.TabIndex = 1;
             // 
             // grbRuleGame
             // 
             this.grbRuleGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbRuleGame.Location = new System.Drawing.Point(15, 150);
+            this.grbRuleGame.Location = new System.Drawing.Point(11, 128);
             this.grbRuleGame.Name = "grbRuleGame";
-            this.grbRuleGame.Size = new System.Drawing.Size(239, 162);
+            this.grbRuleGame.Size = new System.Drawing.Size(239, 134);
             this.grbRuleGame.TabIndex = 10;
             this.grbRuleGame.TabStop = false;
             this.grbRuleGame.Text = "Luật chơi";
@@ -115,7 +102,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(0, 428);
+            this.btnExit.Location = new System.Drawing.Point(0, 374);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(260, 48);
             this.btnExit.TabIndex = 9;
@@ -131,9 +118,9 @@
             this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewGame.ForeColor = System.Drawing.Color.White;
-            this.btnNewGame.Location = new System.Drawing.Point(0, 387);
+            this.btnNewGame.Location = new System.Drawing.Point(0, 323);
             this.btnNewGame.Name = "btnNewGame";
-            this.btnNewGame.Size = new System.Drawing.Size(260, 43);
+            this.btnNewGame.Size = new System.Drawing.Size(260, 48);
             this.btnNewGame.TabIndex = 8;
             this.btnNewGame.Text = "New Game";
             this.btnNewGame.UseVisualStyleBackColor = false;
@@ -141,7 +128,7 @@
             // 
             // btnPvsC
             // 
-            this.btnPvsC.Location = new System.Drawing.Point(145, 318);
+            this.btnPvsC.Location = new System.Drawing.Point(145, 268);
             this.btnPvsC.Name = "btnPvsC";
             this.btnPvsC.Size = new System.Drawing.Size(79, 40);
             this.btnPvsC.TabIndex = 7;
@@ -151,7 +138,7 @@
             // 
             // pctbMark
             // 
-            this.pctbMark.Location = new System.Drawing.Point(145, 42);
+            this.pctbMark.Location = new System.Drawing.Point(145, 3);
             this.pctbMark.Name = "pctbMark";
             this.pctbMark.Size = new System.Drawing.Size(105, 102);
             this.pctbMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -160,7 +147,7 @@
             // 
             // btnPvsP
             // 
-            this.btnPvsP.Location = new System.Drawing.Point(36, 318);
+            this.btnPvsP.Location = new System.Drawing.Point(36, 268);
             this.btnPvsP.Name = "btnPvsP";
             this.btnPvsP.Size = new System.Drawing.Size(79, 40);
             this.btnPvsP.TabIndex = 4;
@@ -170,22 +157,15 @@
             // 
             // txbIP
             // 
-            this.txbIP.Location = new System.Drawing.Point(15, 100);
+            this.txbIP.Location = new System.Drawing.Point(14, 70);
             this.txbIP.Name = "txbIP";
             this.txbIP.Size = new System.Drawing.Size(100, 20);
             this.txbIP.TabIndex = 3;
             this.txbIP.Text = "192.168.0.1";
             // 
-            // prcbCoolDown
-            // 
-            this.prcbCoolDown.Location = new System.Drawing.Point(12, 3);
-            this.prcbCoolDown.Name = "prcbCoolDown";
-            this.prcbCoolDown.Size = new System.Drawing.Size(238, 23);
-            this.prcbCoolDown.TabIndex = 1;
-            // 
             // txbPlayerName
             // 
-            this.txbPlayerName.Location = new System.Drawing.Point(15, 42);
+            this.txbPlayerName.Location = new System.Drawing.Point(12, 11);
             this.txbPlayerName.Name = "txbPlayerName";
             this.txbPlayerName.ReadOnly = true;
             this.txbPlayerName.Size = new System.Drawing.Size(103, 20);
@@ -263,12 +243,54 @@
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
+            // pcbCircular
+            // 
+            this.pcbCircular.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.pcbCircular.AnimationSpeed = 0;
+            this.pcbCircular.BackColor = System.Drawing.Color.Transparent;
+            this.pcbCircular.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcbCircular.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
+            this.pcbCircular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pcbCircular.InnerColor = System.Drawing.Color.Yellow;
+            this.pcbCircular.InnerMargin = 2;
+            this.pcbCircular.InnerWidth = -1;
+            this.pcbCircular.Location = new System.Drawing.Point(0, 0);
+            this.pcbCircular.Maximum = 1000;
+            this.pcbCircular.Name = "pcbCircular";
+            this.pcbCircular.OuterColor = System.Drawing.Color.DarkGreen;
+            this.pcbCircular.OuterMargin = -25;
+            this.pcbCircular.OuterWidth = 26;
+            this.pcbCircular.ProgressColor = System.Drawing.Color.Lime;
+            this.pcbCircular.ProgressWidth = 25;
+            this.pcbCircular.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.pcbCircular.Size = new System.Drawing.Size(260, 260);
+            this.pcbCircular.StartAngle = 270;
+            this.pcbCircular.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.pcbCircular.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.pcbCircular.SubscriptText = "";
+            this.pcbCircular.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.pcbCircular.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.pcbCircular.SuperscriptText = "    ";
+            this.pcbCircular.TabIndex = 1;
+            this.pcbCircular.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.pcbCircular.Click += new System.EventHandler(this.pcbCircular_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Game_Caro.Properties.Resources.logo_uit;
+            this.pictureBox1.Location = new System.Drawing.Point(63, 62);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(140, 140);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Yellow;
-            this.ClientSize = new System.Drawing.Size(998, 743);
+            this.ClientSize = new System.Drawing.Size(998, 739);
             this.Controls.Add(this.pnlChessBoard);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -282,12 +304,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctbAvatar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctbMark)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,11 +318,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pctbAvatar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnPvsP;
         private System.Windows.Forms.TextBox txbIP;
-        private System.Windows.Forms.ProgressBar prcbCoolDown;
         private System.Windows.Forms.TextBox txbPlayerName;
         private System.Windows.Forms.Panel pnlChessBoard;
         private System.Windows.Forms.PictureBox pctbMark;
@@ -316,6 +336,8 @@
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private CircularProgressBar.CircularProgressBar pcbCircular;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
