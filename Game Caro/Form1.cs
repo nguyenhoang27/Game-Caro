@@ -259,5 +259,10 @@ namespace Game_Caro
         {
 
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MaterialMessageBoxInfo.Show("\n\nTrường Đại học Công nghệ thông tin\n\nLập trình trực quan - IT008.J11\n\nNguyễn Minh Hoàng - 15520257", "Thông tin", MessageBoxButtons.OK);
+        }
     }
 }

@@ -31,14 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pcbCircular = new CircularProgressBar.CircularProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grbRuleGame = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
-            this.btnPvsC = new System.Windows.Forms.Button();
-            this.pctbMark = new System.Windows.Forms.PictureBox();
             this.btnPvsP = new System.Windows.Forms.Button();
             this.txbIP = new System.Windows.Forms.TextBox();
             this.txbPlayerName = new System.Windows.Forms.TextBox();
@@ -50,12 +47,17 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pctbMark = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctbMark)).BeginInit();
+            this.grbRuleGame.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctbMark)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,13 +67,6 @@
             this.panel1.Controls.Add(this.pcbCircular);
             this.panel1.Name = "panel1";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Game_Caro.Properties.Resources.logo_uit;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
             // pcbCircular
             // 
             this.pcbCircular.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
@@ -79,7 +74,7 @@
             this.pcbCircular.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.pcbCircular, "pcbCircular");
             this.pcbCircular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pcbCircular.InnerColor = System.Drawing.Color.Yellow;
+            this.pcbCircular.InnerColor = System.Drawing.Color.YellowGreen;
             this.pcbCircular.InnerMargin = 2;
             this.pcbCircular.InnerWidth = -1;
             this.pcbCircular.MarqueeAnimationSpeed = 2000;
@@ -108,7 +103,6 @@
             this.panel2.Controls.Add(this.grbRuleGame);
             this.panel2.Controls.Add(this.btnExit);
             this.panel2.Controls.Add(this.btnNewGame);
-            this.panel2.Controls.Add(this.btnPvsC);
             this.panel2.Controls.Add(this.pctbMark);
             this.panel2.Controls.Add(this.btnPvsP);
             this.panel2.Controls.Add(this.txbIP);
@@ -117,6 +111,8 @@
             // 
             // grbRuleGame
             // 
+            this.grbRuleGame.Controls.Add(this.materialLabel2);
+            this.grbRuleGame.Controls.Add(this.materialLabel1);
             resources.ApplyResources(this.grbRuleGame, "grbRuleGame");
             this.grbRuleGame.Name = "grbRuleGame";
             this.grbRuleGame.TabStop = false;
@@ -141,19 +137,6 @@
             this.btnNewGame.UseVisualStyleBackColor = false;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
-            // btnPvsC
-            // 
-            resources.ApplyResources(this.btnPvsC, "btnPvsC");
-            this.btnPvsC.Name = "btnPvsC";
-            this.btnPvsC.UseVisualStyleBackColor = true;
-            this.btnPvsC.Click += new System.EventHandler(this.btnPvsC_Click);
-            // 
-            // pctbMark
-            // 
-            resources.ApplyResources(this.pctbMark, "pctbMark");
-            this.pctbMark.Name = "pctbMark";
-            this.pctbMark.TabStop = false;
-            // 
             // btnPvsP
             // 
             resources.ApplyResources(this.btnPvsP, "btnPvsP");
@@ -174,7 +157,7 @@
             // 
             // pnlChessBoard
             // 
-            this.pnlChessBoard.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlChessBoard.BackColor = System.Drawing.Color.Khaki;
             resources.ApplyResources(this.pnlChessBoard, "pnlChessBoard");
             this.pnlChessBoard.Name = "pnlChessBoard";
             // 
@@ -195,7 +178,8 @@
             // 
             this.meunToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newGameToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.meunToolStripMenuItem.Name = "meunToolStripMenuItem";
             resources.ApplyResources(this.meunToolStripMenuItem, "meunToolStripMenuItem");
             // 
@@ -214,8 +198,7 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem});
+            this.undoToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
             // 
@@ -225,16 +208,46 @@
             resources.ApplyResources(this.undoToolStripMenuItem, "undoToolStripMenuItem");
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
-            // redoToolStripMenuItem
+            // aboutToolStripMenuItem
             // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            resources.ApplyResources(this.redoToolStripMenuItem, "redoToolStripMenuItem");
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // pctbMark
+            // 
+            resources.ApplyResources(this.pctbMark, "pctbMark");
+            this.pctbMark.Name = "pctbMark";
+            this.pctbMark.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Game_Caro.Properties.Resources.logo_uit;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // materialLabel1
+            // 
+            resources.ApplyResources(this.materialLabel1, "materialLabel1");
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            // 
+            // materialLabel2
+            // 
+            resources.ApplyResources(this.materialLabel2, "materialLabel2");
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Yellow;
+            this.BackColor = System.Drawing.Color.RoyalBlue;
             this.Controls.Add(this.pnlChessBoard);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -247,12 +260,14 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctbMark)).EndInit();
+            this.grbRuleGame.ResumeLayout(false);
+            this.grbRuleGame.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctbMark)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,18 +284,19 @@
         private System.Windows.Forms.PictureBox pctbMark;
         private System.Windows.Forms.Timer tmCoolDown;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.Button btnPvsC;
         private System.Windows.Forms.ToolStripMenuItem meunToolStripMenuItem;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.GroupBox grbRuleGame;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private CircularProgressBar.CircularProgressBar pcbCircular;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
 

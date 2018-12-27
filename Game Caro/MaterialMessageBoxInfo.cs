@@ -7,17 +7,16 @@ using System.Windows.Forms;
 
 namespace Game_Caro
 {
-    public static class MaterialMessageBoxOK
+    public static class MaterialMessageBoxInfo
     {
         public static DialogResult Show(string message, string caption, MessageBoxButtons buttons)
         {
             DialogResult result = DialogResult.None;
-            frmOK oKCancel = new frmOK();
-            oKCancel.Text = caption;
-            oKCancel.Message = message;
-            result = oKCancel.ShowDialog();
+            frmInfo info = new frmInfo();
+            info.Text = caption;
+            info.Message = message;
+            result = info.ShowDialog();
             return result;
         }
-
     }
 }
