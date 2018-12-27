@@ -64,8 +64,8 @@ namespace Game_Caro
             this.ChessBoard = chessBoard;
             this.Player = new List<Player>()
             {
-                new Player("Hoang", Image.FromFile(Application.StartupPath + "\\Resources\\x.png")),
-                new Player("Hoang2", Image.FromFile(Application.StartupPath + "\\Resources\\o.png"))
+                new Player("Người chơi 1", Image.FromFile(Application.StartupPath + "\\Resources\\x.png")),
+                new Player("Người chơi 2", Image.FromFile(Application.StartupPath + "\\Resources\\o.png"))
             };
             this.PlayerName = playerName;
             this.PlayerMark = mark;

@@ -17,3 +17,9 @@ E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\CircularProgressBar.dll
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\WinFormAnimation.dll
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\CircularProgressBar.xml
 E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\WinFormAnimation.xml
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\aa\Game Caro.resources.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Debug\MaterialSkin.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game_Caro.Form1.aa.resources
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\aa\Game Caro.resources.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game_Caro.frmOKCancel.resources
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Debug\Game_Caro.frmOK.resources

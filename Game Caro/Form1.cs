@@ -65,7 +65,6 @@ namespace Game_Caro
         void Exit()
         {
             Application.Exit();
-
         }
 
         void ChessBoard_PlayerMarked(object sender, ButtonClickEvent e)
@@ -134,6 +133,7 @@ namespace Game_Caro
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //if (MaterialMessageBox.Show("Bạn có chắc muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             if (MessageBox.Show("Bạn có chắc muốn thoát", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
                 e.Cancel = true;
             else
@@ -224,14 +224,14 @@ namespace Game_Caro
                     pcbCircular.Value = 0;
                     break;
                 case (int)SocketCommand.END_GAME:
-                    MessageBox.Show("Đã 5 con trên 1 hàng");
+                    MaterialMessageBoxOK.Show("Đã 5 con trên 1 hàng", "Thông báo", MessageBoxButtons.OK);
                     break;
                 case (int)SocketCommand.TIME_OUT:
-                    MessageBox.Show("Hết giờ");
+                    MaterialMessageBoxOK.Show("Hết giờ", "Thông báo", MessageBoxButtons.OK);
                     break;
                 case (int)SocketCommand.QUIT:
                     tmCoolDown.Stop();
-                    MessageBox.Show("Người chơi đã thoát");
+                    MaterialMessageBoxOK.Show("Người chơi đã thoát!!", "Thông báo", MessageBoxButtons.OK);
                     break;
                 default:
                     break;
@@ -251,6 +251,11 @@ namespace Game_Caro
         }
 
         private void pcbCircular_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
