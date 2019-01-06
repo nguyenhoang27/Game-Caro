@@ -53,7 +53,7 @@ namespace Game_Caro
 
         #endregion
         #region 
-        public string IP = "127.0.0.1";
+        public string IP = "000";
         public int PORT = 9999;
         public const int BUFFER = 1024;
         public bool isServer = true;

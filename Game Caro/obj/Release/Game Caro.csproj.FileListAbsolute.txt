@@ -1,0 +1,26 @@
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\Game Caro.exe.config
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\Game Caro.exe
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\Game Caro.pdb
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\aa\Game Caro.resources.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\CircularProgressBar.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\MaterialDesignColors.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\MaterialDesignThemes.Wpf.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\MaterialSkin.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\WinFormAnimation.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\CircularProgressBar.xml
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\MaterialDesignThemes.Wpf.pdb
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\MaterialDesignThemes.Wpf.xml
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\bin\Release\WinFormAnimation.xml
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game Caro.csprojAssemblyReference.cache
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game_Caro.Form1.resources
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game_Caro.frmOK.resources
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game_Caro.frmOKCancel.resources
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game_Caro.frmInfo.resources
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game_Caro.Properties.Resources.resources
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game_Caro.Form1.aa.resources
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game Caro.csproj.GenerateResource.cache
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game Caro.csproj.CoreCompileInputs.cache
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\aa\Game Caro.resources.dll
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game Caro.csproj.CopyComplete
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game Caro.exe
+E:\OneDrive\Năm 4\Co Caro\Game Caro\Game Caro\obj\Release\Game Caro.pdb

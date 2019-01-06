@@ -5,16 +5,27 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game Caro", "Game Caro\Game Caro.csproj", "{BCFCEB33-3176-42D9-95A2-843427681BDD}"
 EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "SettupCaro", "SettupCaro\SettupCaro.aiproj", "{2E71D6FA-323E-4B9E-8C76-90D9B74EDF4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCFCEB33-3176-42D9-95A2-843427681BDD}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{BCFCEB33-3176-42D9-95A2-843427681BDD}.All|Any CPU.Build.0 = Release|Any CPU
 		{BCFCEB33-3176-42D9-95A2-843427681BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BCFCEB33-3176-42D9-95A2-843427681BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCFCEB33-3176-42D9-95A2-843427681BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCFCEB33-3176-42D9-95A2-843427681BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E71D6FA-323E-4B9E-8C76-90D9B74EDF4D}.All|Any CPU.ActiveCfg = DefaultBuild
+		{2E71D6FA-323E-4B9E-8C76-90D9B74EDF4D}.All|Any CPU.Build.0 = DefaultBuild
+		{2E71D6FA-323E-4B9E-8C76-90D9B74EDF4D}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{2E71D6FA-323E-4B9E-8C76-90D9B74EDF4D}.Debug|Any CPU.Build.0 = DefaultBuild
+		{2E71D6FA-323E-4B9E-8C76-90D9B74EDF4D}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{2E71D6FA-323E-4B9E-8C76-90D9B74EDF4D}.Release|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

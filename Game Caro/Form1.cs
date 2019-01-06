@@ -184,7 +184,7 @@ namespace Game_Caro
 
                         ProcessData(data);
                     }
-                    catch (Exception e)
+                    catch (Exception )
                     {
                     }
 
@@ -243,6 +243,7 @@ namespace Game_Caro
 
         private void Form1_Shown(object sender, EventArgs e)
         {
+            pnlChessBoard.Enabled = false;
             txbIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
             if (string.IsNullOrEmpty(txbIP.Text))
             {
