@@ -1,4 +1,4 @@
-# Game-Caro
+# Game Caro
 Game cờ caro chơi qua mạng LAN cơ bản
 
 ## [Demo](https://www.youtube.com/watch?v=ivGlCsAg9to&t=2s)
